@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if form.instance.pk %} Editar Contato{% else %} Adicionar Contato {% endif %}</title>
+</head>
+<body>
+    <h1>{% if form.instance.pk %} Editar Contato{% else %} Adicionar Contato {% endif %}</h1>
+    <form action="" method="POST">  <!-- You can set action="{% url 'contato-create' %}" if needed -->
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar</button> <!-- Changed "Salva" to "Salvar" -->
+    </form>
+    <a href="{% url 'contato-list' %}">Voltar para lista</a>
+</body>
+</html>

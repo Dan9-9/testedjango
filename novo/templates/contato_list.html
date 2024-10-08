@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Lista de Contatos</h1>
+    <a href="{% url 'contato-create' %}">Adicionar novo</a>
+    <ul>
+        {% for contato in contatos%}
+            <li>
+                {{ contato.nome}} - {{ contato.email}}
+                <a href="{% url 'contato-update' contato.pk%}">Editar</a>
+                <a href="{% url 'contato-delete' contato.pk%}">Deletar</a>
+            </li>
+        {% empty %}
+            <li>
+                Nenhum contato disponivel
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
